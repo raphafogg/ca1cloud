@@ -20,9 +20,27 @@ module.exports = () =>{
         return results.results;
 
     };
+
+    const getByPass = async (key) => {
+        if(!key){
+            console.log('No key found.')
+            return null;
+        }
+
+        const users = await db.get(COLLECTION, {key});
+        if (users.length !==1) {
+            console.log('That is a bad key, Harry.')
+        }
+        return users[0];
+    }
+    
+
+
+
     return {
         get,
         add,
+        getByPass,
     };
 
 };
