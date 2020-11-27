@@ -5,8 +5,7 @@ const dbEmail = process.env.EMAIL;
 const dbPass = process.env.PASSWORD;
 
 module.exports = () =>{
-    const get = async (email=null) =>{
-        try {
+    const get = async (email=null) =>{        try {
         if(!email){
             const user = await db.get(COLLECTION);
             return {user};
@@ -14,9 +13,7 @@ module.exports = () =>{
         const user = await db.get(COLLECTION, {email})
         return {user};
 
-    }catch(err){
-        console.log(err);
-        return {error:err,};
+    }catch(err){        console.log(err);        return {error:err,};
     }
     }
 
@@ -56,9 +53,7 @@ module.exports = () =>{
 
 
 
-        try {
-
-        if(!name || !email || !usertype || !key ){
+        try {        if(!name || !email || !usertype || !key ){
             return {
                 error: "At least one of the fields is missing."
             }
@@ -78,9 +73,7 @@ module.exports = () =>{
         });
         return {results};
     
-}catch(err){
-    console.log(err);
-    return { error:err,};
+}catch(err){    console.log(err);    return { error:err,};
 }
 };
 
@@ -88,8 +81,7 @@ module.exports = () =>{
 
 
 
-    const getByPass = async (key) => {
-        if(!key){
+    const getByPass = async (key) => {        if(!key){
             console.log('No key found.')
             return null;
         }

@@ -11,36 +11,70 @@
 * [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+This is a final project for the subject Cloud-based Web Applications - A bug tracker
 
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Mongo DB:  is a cross-platform document-oriented database program.
+* Express js: a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+* Body-parser: the Node. js body parsing middleware.
 
 ## Setup
-Describe how to install / setup your local environement / add link to demo version.
+Dowload it from https://github.com/raphafogg/ca1cloud . Move to an appropriate directory. Open your terminal and run npm start.
 
 ## Code Examples
-Show examples of usage:
-`put-your-code-here`
+Issues routers
 
-## Features
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+app.get('/issues', issues.getControl);
+app.get('/issues/:slug', issues.getByIs);
+app.get(`/projects/:slug/issues`, issues.getByPr);
+app.post('/projects/:sNome/issues', issues.postController);
 
-To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+Users routers
 
-## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+app.get(`/users`, users.getControl);
+app.get(`/users/:email`, users.getByEmail);
+app.post('/users', users.postController);
 
-## Inspiration
-Add here credits. Project inspired by..., based on...
+
+## Changelog
+
+On the 27/11:
+
+Commits on Nov 27, 2020
+living in hope of deliverance
+
+@raphafogg
+raphafogg committed 8 minutes ago
+ 
+Commits on Nov 1, 2020
+final version
+
+@raphafogg
+raphafogg committed 26 days ago
+ 
+Commits on Oct 31, 2020
+add control / models for users
+
+@raphafogg
+raphafogg committed 27 days ago
+ 
+Commits on Oct 30, 2020
+Fixe port
+
+@raphafogg
+raphafogg committed 28 days ago
+ 
+First commit
+
+@raphafogg
+raphafogg committed 28 days ago
+
+
+## Roadmap
+
+fronted development - > unit testing - > add issue - > add due - > add watchers
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+By [@rapha_fogg]
+contact: raphacaetanoto@gmail.com
