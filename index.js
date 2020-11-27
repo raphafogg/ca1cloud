@@ -48,7 +48,7 @@ app.use(bodyParser.json());
 
 app.get(`/users`, users.getControl);
 app.get(`/users/:email`, users.getByEmail);
-app.post('./users', users.postController);
+app.post('/users', users.postController);
 
 // projects routers
 
@@ -75,4 +75,10 @@ app.get('/', (req, res)=>{
 
 app.listen(port, hostname, ()=>{
     console.log(`App listening at http://${hostname}:${port}`);
+});
+app.use((req,res) => {
+    res.status(404).json({
+        error: 404,
+        message: 'Not found',
+    })
 });

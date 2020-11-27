@@ -1,21 +1,38 @@
-const comments = require ('../models/comments')();
+const comment = require ('../models/comments')();
 module.exports = () => {
 
     const getEveryone = async (req, res)=>{
-        res.json(await comments.getEveryCommIs(req.params.isNumero))
+        let {comments, error} = await comment.getEveryCommIs(req.params.isNumero);
+        
+        if (error){
+            res.status(500).json({
+                error, 
+            })
+        }
+        res.json(comments)
     }
 
     const getComm = async (req, res)=>{
-        res.json(await comments.getOnecomm(req.params.commID));
+        const { comments, error} = await comment.getOnecomm(req.params.commID);
+       
+        if (error){
+            res.status(500).json({
+                error, 
+            })
+        }
+        res.json(comments);
     }
    
     const postComm = async (req, res) => {
         let isNumero = req.params.isNumero;
         let text = req.body.text;
         let author = req.body.author;
-        
-
-        const results = await comments.addC(isNumero, text, author);
+        const {results, error} = await comment.addC(isNumero, text, author);
+        if (error){
+            res.status(500).json({
+                error, 
+            })
+        }
         res.json(results);
     };
     return {
